@@ -397,6 +397,9 @@ NSString * const ID = @"SDCycleScrollViewCell";
             pageControl.dotColor = self.currentPageDotColor;
             pageControl.userInteractionEnabled = NO;
             pageControl.currentPage = indexOnPageControl;
+            if (self.pageDotSpace > 0) {
+                pageControl.spacingBetweenDots = self.pageDotSpace;
+            }
             [self addSubview:pageControl];
             _pageControl = pageControl;
         }

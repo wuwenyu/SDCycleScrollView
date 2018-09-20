@@ -195,7 +195,8 @@ typedef enum {
 
 /** 轮播文字label对齐方式 */
 @property (nonatomic, assign) NSTextAlignment titleLabelTextAlignment;
-
+/** 分页控件小圆标间距 */
+@property (nonatomic, assign) CGFloat pageDotSpace;
 /** 滚动手势禁用（文字轮播较实用） */
 - (void)disableScrollGesture;
 
