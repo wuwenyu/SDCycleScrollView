@@ -635,6 +635,9 @@ NSString * const ID = @"SDCycleScrollViewCell";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    if ([self.delegate respondsToSelector:@selector(cycleScrollView:scrollViewDidScroll:)]) {
+        [self.delegate cycleScrollView:self scrollViewDidScroll:scrollView];
+    }
     if (!self.imagePathsGroup.count) return; // 解决清除timer时偶尔会出现的问题
     int itemIndex = [self currentIndex];
     int indexOnPageControl = [self pageControlIndexWithCurrentCellIndex:itemIndex];
@@ -650,6 +653,9 @@ NSString * const ID = @"SDCycleScrollViewCell";
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
+    if ([self.delegate respondsToSelector:@selector(cycleScrollView:scrollViewWillBeginDragging:)]) {
+        [self.delegate cycleScrollView:self scrollViewWillBeginDragging:scrollView];
+    }
     if (self.autoScroll) {
         [self invalidateTimer];
     }
