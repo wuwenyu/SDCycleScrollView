@@ -41,8 +41,6 @@
 NSString * const ID = @"SDCycleScrollViewCell";
 
 @interface SDCycleScrollView () <UICollectionViewDataSource, UICollectionViewDelegate>
-
-
 @property (nonatomic, weak) UICollectionView *mainView; // 显示图片的collectionView
 @property (nonatomic, weak) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) NSArray *imagePathsGroup;
@@ -679,8 +677,8 @@ NSString * const ID = @"SDCycleScrollViewCell";
     int itemIndex = [self currentIndex];
     int indexOnPageControl = [self pageControlIndexWithCurrentCellIndex:itemIndex];
     
-    if ([self.delegate respondsToSelector:@selector(cycleScrollView:didScrollToIndex:)]) {
-        [self.delegate cycleScrollView:self didScrollToIndex:indexOnPageControl];
+    if ([self.delegate respondsToSelector:@selector(cycleScrollView:didScrollToIndex:scrollView:)]) {
+        [self.delegate cycleScrollView:self didScrollToIndex:indexOnPageControl scrollView:scrollView];
     } else if (self.itemDidScrollOperationBlock) {
         self.itemDidScrollOperationBlock(indexOnPageControl);
     }
@@ -700,3 +698,4 @@ NSString * const ID = @"SDCycleScrollViewCell";
 }
 
 @end
+
